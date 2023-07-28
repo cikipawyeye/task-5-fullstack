@@ -1,0 +1,295 @@
+{
+	"info": {
+		"_postman_id": "b8ff80fd-7c85-487a-bd2e-44e78499f0da",
+		"name": "Blog API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "19062066"
+	},
+	"item": [
+		{
+			"name": "Login",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "email",
+							"value": "test@test.com",
+							"type": "text"
+						},
+						{
+							"key": "password",
+							"value": "password",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/login",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"login"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "list all",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "my post title 5",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "here is content",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/User/Downloads/Screenshot (4).png"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/posts",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"posts"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "update",
+			"protocolProfileBehavior": {
+				"disabledSystemHeaders": {
+					"accept": true
+				}
+			},
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "title",
+							"value": "my post title 12",
+							"type": "text"
+						},
+						{
+							"key": "content",
+							"value": "here is content 3",
+							"type": "text"
+						},
+						{
+							"key": "category_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "image",
+							"type": "file",
+							"src": "/D:/User/Downloads/Screenshot 2023-06-09 214815.png"
+						},
+						{
+							"key": "_method",
+							"value": "put",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "localhost:8000/api/v1/posts/9",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"9"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "show detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/posts/12",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"12"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Authorization",
+						"value": "Bearer {{accessToken}}",
+						"type": "text"
+					},
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "localhost:8000/api/v1/posts/5",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"v1",
+						"posts",
+						"5"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	],
+	"variable": [
+		{
+			"key": "accessToken",
+			"value": "eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJhdWQiOiIyIiwianRpIjoiMGI0NmNhNGFiNGZiZDA5OGIwNTZhYjc4ZDlmMDU0YjJlZTQ3N2IyYWUyMDQ5ZWYyYWZhZTM0NGI5NjRjMWY3NjQ5ZDJlOGVlZjhiNTg5MDAiLCJpYXQiOjE2OTAxOTM2MTcuOTIwMTg2LCJuYmYiOjE2OTAxOTM2MTcuOTIwMTkzLCJleHAiOjE3MjE4MTYwMTcuNzg2Njg2LCJzdWIiOiIxMSIsInNjb3BlcyI6W119.TwF4gi2WcKmNUSmae-3eZux17zEoc5YcFsXQCOtGVPliHSOaxV6IaBOt7F3_KNgsam2zxOB0RSoiuLb6L8yDx7nrRpf34qSLfwXnNB1n-rX774SrpjLVWfqZZGQIBiMSNd09O7_5ifFAwqhVPnQA-ArHi00UTxJya3PQEbTD0VLwVnlpKhtk10ZV0HVuWw91CF-77wYaqDupXlxj_x0FHzwSwNYqvsX-joCoY7OFXI5dpxJubn_UvTEexF--annXCP72SGUm1jYNvfF5F0brc6g449itj82CIc99ykNfceTd00baI301rNDjar23emN85oAT_byjtSB1hkW6et6-oSgCkXatSZTToX1ZFasi7AXRSwPoas-peYWf8IXPiVSg7UTipWiAZHULQKTFp2c62wsWglh3FkoZbYG88Frl3FUGxTkOm-yJmgbZstnAPe_X2uH9RT_iiXCwZ5QZva6RiwewO2jIk0vyJHZYhkIdQqgYj82gyNL0Qg28skORM1LBVv9NcTrvSF0CuojQcNhm0U8taSNVL87jBZ11br3XkXefomT__jDq32iT-KUt1AXN0gYGzJMilOJzo3d1B3xj4gmjgoxOm_nlBdRkBIyMvqJMKjz0840jmXNY5h2lYFHcz7RMb-sbyKfwU1BULN_ArrJ60I6jq4hxX4x6xl74c6s"
+		}
+	]
+}
